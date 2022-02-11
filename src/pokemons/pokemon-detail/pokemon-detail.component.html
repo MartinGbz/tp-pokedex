@@ -1,0 +1,38 @@
+<div *ngIf="pokemonDetails">
+  <mat-card style="background-color: dimgrey; color: lightgrey; height: fit-content; width: 500px">
+    <mat-list>
+    <mat-grid-list cols="1" style="color: lightgrey;">
+<!--          <mat-grid-tile style="background-color: greenyellow">-->
+      <mat-grid-list cols="2">
+        <mat-grid-tile>
+          <mat-list>
+            <mat-list-item><img [src]="pokemonImgSrc" alt="{{pokemonDetails.name}}"></mat-list-item>
+            <mat-list-item style="color: lightgrey;"> No. {{ pokemonDetails.id | number: '3.0-0'}} </mat-list-item>
+          </mat-list>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-list>
+            <mat-list-item style="color: lightgrey;"> {{ pokemonDetails.name }} <button class="play-button" (click)="audioElement.play()">▶</button> <audio #audioElement src="assets/assets/audio/{{pokemonDetails.id}}.mp3"></audio> </mat-list-item>
+            <mat-list-item>
+              <mat-chip-list>
+                <mat-chip class="types-list" style="background-color: #808080; color: lightgrey" *ngFor="let type of pokemonDetails.types"> {{type}} </mat-chip>
+              </mat-chip-list>
+            </mat-list-item>
+            <mat-list-item style="color: lightgrey;"> Taille: {{ pokemonDetails.height | number: '.1' }} </mat-list-item>
+            <mat-list-item style="color: lightgrey;"> Poids: {{ pokemonDetails.weight | number: '.1'}} </mat-list-item>
+          </mat-list>
+        </mat-grid-tile>
+      </mat-grid-list>
+<!--          </mat-grid-tile>-->
+<!--          <mat-grid-tile style="background-color: aquamarine; ">-->
+      {{ pokemonDetails.description }}
+<!--      <mat-card-footer>-->
+<!--        desc-->
+<!--      </mat-card-footer>-->
+<!--          </mat-grid-tile>-->
+    </mat-grid-list>
+    </mat-list>
+  </mat-card>
+</div>
+<button class="back-button" mat-button routerLink="/"><mat-icon>keyboard_backspace</mat-icon></button>
+
