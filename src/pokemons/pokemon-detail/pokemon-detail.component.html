@@ -1,38 +1,34 @@
 <div *ngIf="pokemonDetails">
   <mat-card style="background-color: dimgrey; color: lightgrey; height: fit-content; width: 500px">
-    <mat-list>
-    <mat-grid-list cols="1" style="color: lightgrey; height: fit-content">
-<!--          <mat-grid-tile style="background-color: greenyellow">-->
-      <mat-grid-list cols="2">
-        <mat-grid-tile>
-          <mat-list style="width: max-content; background-color: green; align-items: center; align-content: center; align-self: center">
-            <mat-list-item style="background-color: burlywood; height: fit-content; width: fit-content"><img [src]="pokemonImgSrc" alt="{{pokemonDetails.name}}"></mat-list-item>
-            <mat-list-item style="color: lightgrey; background-color: blueviolet; width: fit-content; text-align: center;"> No. {{ pokemonDetails.id | number: '3.0-0'}} </mat-list-item>
-          </mat-list>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <mat-list>
-            <mat-list-item style="color: lightgrey;"> {{ pokemonDetails.name }} <button class="play-button" (click)="audioElement.play()">▶</button> <audio #audioElement src="assets/assets/audio/{{pokemonDetails.id}}.mp3"></audio> </mat-list-item>
-            <mat-list-item>
-              <mat-chip-list>
-                <mat-chip class="types-list" style="background-color: #808080; color: lightgrey" *ngFor="let type of pokemonDetails.types"> {{type}} </mat-chip>
-              </mat-chip-list>
-            </mat-list-item>
-            <mat-list-item style="color: lightgrey;"> Taille: {{ pokemonDetails.height | number: '.1' }} </mat-list-item>
-            <mat-list-item style="color: lightgrey;"> Poids: {{ pokemonDetails.weight | number: '.1'}} </mat-list-item>
-          </mat-list>
-        </mat-grid-tile>
-      </mat-grid-list>
-<!--          </mat-grid-tile>-->
-<!--          <mat-grid-tile style="background-color: aquamarine;">-->
-      {{ pokemonDetails.description }}
-<!--      <mat-card-footer>-->
-<!--        desc-->
-<!--      </mat-card-footer>-->
-<!--          </mat-grid-tile>-->
+    <mat-grid-list cols="2" rowHeight="50px">
+          <mat-grid-tile rowspan="5" colspan="1">
+            <mat-list>
+              <mat-list-item style="height: fit-content; width: fit-content"><img [src]="pokemonImgSrc" alt="{{pokemonDetails.name}}"></mat-list-item>
+              <div style="text-align: center">
+                 No. {{ pokemonDetails.id | number: '3.0-0'}}
+              </div>
+            </mat-list>
+          </mat-grid-tile>
+          <mat-grid-tile rowspan="5" colspan="1">
+            <mat-list>
+              <mat-list-item>
+                {{ pokemonDetails.name }} <button class="play-button" (click)="audioElement.play()">▶</button>
+                <audio #audioElement src="assets/assets/audio/{{pokemonDetails.id}}.mp3"></audio>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-chip-list>
+                  <mat-chip class="types-list" *ngFor="let type of pokemonDetails.types"> {{type}} </mat-chip>
+                </mat-chip-list>
+              </mat-list-item>
+              <mat-list-item> Taille: {{ pokemonDetails.height | number: '.1' }} </mat-list-item>
+              <mat-list-item> Poids: {{ pokemonDetails.weight | number: '.1'}} </mat-list-item>
+            </mat-list>
+          </mat-grid-tile>
+          <mat-grid-tile rowspan="2" colspan="2">
+            {{ pokemonDetails.description }}
+          </mat-grid-tile>
     </mat-grid-list>
-    </mat-list>
   </mat-card>
-  <button class="back-button" mat-button routerLink="/"><mat-icon>keyboard_backspace</mat-icon></button>
+  <button class="back-button" mat-button routerLink="/">←</button>
 </div>
 

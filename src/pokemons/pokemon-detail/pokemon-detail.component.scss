@@ -3,6 +3,15 @@ img {
   width: 200px;
 }
 
+mat-list mat-list-item {
+  color: lightgrey;
+}
+
+mat-chip {
+  background-color: #808080;
+  color: lightgrey;
+}
+
 .play-button {
   width: 25px;
   height: 25px;
@@ -12,10 +21,10 @@ img {
   color: lightgrey;
   border-color: lightgrey;
   border-style: solid;
-  padding: 0;
+  padding-left: 5px;
   margin-left: 10px;
   cursor: pointer;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .back-button {
@@ -27,4 +36,5 @@ img {
   margin-top: 10px;
   padding: 0;
   color: lightgrey;
+  font-size: 30px;
 }
