@@ -17,4 +17,8 @@ export class PokemonListComponent implements OnInit {
       this.pokemons = res.data;
     });
   }
+
+  onScroll(): void {
+    console.log('scrolled');
+  }
 }

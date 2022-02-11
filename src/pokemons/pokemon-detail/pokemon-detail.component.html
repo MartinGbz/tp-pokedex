@@ -1,13 +1,13 @@
 <div *ngIf="pokemonDetails">
   <mat-card style="background-color: dimgrey; color: lightgrey; height: fit-content; width: 500px">
     <mat-list>
-    <mat-grid-list cols="1" style="color: lightgrey;">
+    <mat-grid-list cols="1" style="color: lightgrey; height: fit-content">
 <!--          <mat-grid-tile style="background-color: greenyellow">-->
       <mat-grid-list cols="2">
         <mat-grid-tile>
-          <mat-list>
-            <mat-list-item><img [src]="pokemonImgSrc" alt="{{pokemonDetails.name}}"></mat-list-item>
-            <mat-list-item style="color: lightgrey;"> No. {{ pokemonDetails.id | number: '3.0-0'}} </mat-list-item>
+          <mat-list style="width: max-content; background-color: green; align-items: center; align-content: center; align-self: center">
+            <mat-list-item style="background-color: burlywood; height: fit-content; width: fit-content"><img [src]="pokemonImgSrc" alt="{{pokemonDetails.name}}"></mat-list-item>
+            <mat-list-item style="color: lightgrey; background-color: blueviolet; width: fit-content; text-align: center;"> No. {{ pokemonDetails.id | number: '3.0-0'}} </mat-list-item>
           </mat-list>
         </mat-grid-tile>
         <mat-grid-tile>
@@ -24,7 +24,7 @@
         </mat-grid-tile>
       </mat-grid-list>
 <!--          </mat-grid-tile>-->
-<!--          <mat-grid-tile style="background-color: aquamarine; ">-->
+<!--          <mat-grid-tile style="background-color: aquamarine;">-->
       {{ pokemonDetails.description }}
 <!--      <mat-card-footer>-->
 <!--        desc-->
@@ -33,6 +33,6 @@
     </mat-grid-list>
     </mat-list>
   </mat-card>
+  <button class="back-button" mat-button routerLink="/"><mat-icon>keyboard_backspace</mat-icon></button>
 </div>
-<button class="back-button" mat-button routerLink="/"><mat-icon>keyboard_backspace</mat-icon></button>
 

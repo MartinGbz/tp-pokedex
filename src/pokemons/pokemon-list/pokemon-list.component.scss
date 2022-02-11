@@ -3,8 +3,17 @@ img {
 }
 
 mat-list {
-  background-color: black;
+  background-color: dimgrey;
   width: max-content;
+  //overflow: auto;
+  //height: 500px;
+}
+
+mat-nav-list {
+  background-color: dimgrey;
+  width: max-content;
+  overflow: auto;
+  //height: 200px;
 }
 
 mat-list-item mat-label {
