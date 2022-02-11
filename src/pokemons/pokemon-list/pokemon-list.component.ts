@@ -16,22 +16,15 @@ export class PokemonListComponent implements OnInit {
 
   ngOnInit(): void {
     this.pokemonService.getPokemons(0,10).subscribe(res => {
-      console.log('res');
-      console.log(res);
       this.pokemons = res;
     });
   }
 
   onScroll(): void {
-    console.log('scrolled');
     this.pokemonService.getPokemons(this.pokemons.offset+10, this.pokemons.limit).subscribe(res => {
-      console.log('res');
-      console.log(res);
       this.pokemons.offset = res.offset;
       this.pokemons.limit = res.limit;
       this.pokemons.data = [...this.pokemons.data, ...res.data];
-      console.log('this.pokemons.data');
-      console.log(this.pokemons.data);
     });
   }
 }
