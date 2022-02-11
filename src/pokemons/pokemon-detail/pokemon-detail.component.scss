@@ -12,19 +12,25 @@ mat-chip {
   color: lightgrey;
 }
 
+//.play-button {
+//  width: 25px;
+//  height: 25px;
+//  border-radius: 100%;
+//  border-width: 3px;
+//  background-color: dimgrey;
+//  color: lightgrey;
+//  border-color: lightgrey;
+//  border-style: solid;
+//  padding-left: 5px;
+//  margin-left: 10px;
+//  cursor: pointer;
+//  font-size: 13px;
+//}
+
 .play-button {
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
-  border-width: 3px;
-  background-color: dimgrey;
+  background-color: transparent;
+  border-width: 0;
   color: lightgrey;
-  border-color: lightgrey;
-  border-style: solid;
-  padding-left: 5px;
-  margin-left: 10px;
-  cursor: pointer;
-  font-size: 13px;
 }
 
 .back-button {

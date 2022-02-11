@@ -10,6 +10,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatButtonModule} from "@angular/material/button";
 import {InfiniteScrollModule} from "ngx-infinite-scroll";
+import {MatIconModule} from "@angular/material/icon";
 
 
 
@@ -31,6 +32,7 @@ import {InfiniteScrollModule} from "ngx-infinite-scroll";
     MatChipsModule,
     MatButtonModule,
     InfiniteScrollModule,
+    MatIconModule,
   ]
 })
 export class PokemonsModule { }
