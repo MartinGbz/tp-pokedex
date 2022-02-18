@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {PokemonService} from "../pokemon.service";
 import {PageData} from "../../models/page-data";
 import {Pokemon} from "../../models/pokemon";
@@ -11,6 +11,9 @@ import {Pokemon} from "../../models/pokemon";
 export class PokemonListComponent implements OnInit {
 
   pokemons: PageData<Pokemon> = {data: [], limit: 0, offset: 0};
+
+  @Output()
+  pokemonClick: EventEmitter<any> = new EventEmitter();
 
   constructor(private pokemonService: PokemonService) { }
 

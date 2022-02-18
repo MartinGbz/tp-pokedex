@@ -1,0 +1,11 @@
+<!--<mat-drawer-container>-->
+<!--  <mat-drawer mode="side" opened style="height: 200px">-->
+<!--    <app-pokemon-list (pokemonClick)="pokemonIdChange($event)"></app-pokemon-list>-->
+<!--  </mat-drawer>-->
+<!--  <mat-drawer-content>-->
+<!--    <app-pokemon-detail [pokemonId]="pokemonId"></app-pokemon-detail>-->
+<!--  </mat-drawer-content>-->
+<!--</mat-drawer-container>-->
+
+<app-pokemon-list (pokemonClick)="pokemonIdChange($event)"></app-pokemon-list>
+<app-pokemon-detail [pokemonId]="pokemonId"></app-pokemon-detail>
