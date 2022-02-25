@@ -43,9 +43,6 @@ export class PokemonListComponent implements OnInit {
   }
 
   test(e: any) {
-    console.log('test!!!!!!!!');
-    console.log(e);
-    console.log(this.curPokemonNameSearched);
     this.pokemons.offset = 0;
     this.pokemons.limit = 0;
     if(this.curPokemonNameSearched == '') {

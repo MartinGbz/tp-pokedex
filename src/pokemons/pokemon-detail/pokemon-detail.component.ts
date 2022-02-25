@@ -16,17 +16,12 @@ export class PokemonDetailComponent implements OnInit {
   @Input()
   pokemonId = 1;
 
-  @Input()
-  width = "500px";
-
   constructor(private activatedroute: ActivatedRoute, private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
     // this.pokemonId = Number(this.activatedroute.snapshot.paramMap.get("id"));
     console.log(this.pokemonId);
     this.getPokemonDescription();
-
-    // this.data
   }
 
   getPokemonDescription(): void {
