@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokedexComponent implements OnInit {
 
-  pokemonId = 0;
+  pokemonId = 1;
 
   constructor() { }
 

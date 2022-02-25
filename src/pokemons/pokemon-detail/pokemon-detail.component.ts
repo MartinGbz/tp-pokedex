@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PokemonService} from "../pokemon.service";
 
@@ -14,21 +14,38 @@ export class PokemonDetailComponent implements OnInit {
   pokemonImgSrc = '';
 
   @Input()
-  pokemonId = 0;
+  pokemonId = 1;
+
+  @Input()
+  width = "500px";
 
   constructor(private activatedroute: ActivatedRoute, private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
     // this.pokemonId = Number(this.activatedroute.snapshot.paramMap.get("id"));
     console.log(this.pokemonId);
+    this.getPokemonDescription();
+
+    // this.data
+  }
+
+  getPokemonDescription(): void {
     this.pokemonService.getPokemonDescription(this.pokemonId).subscribe(res => {
-      this.pokemonDetails = res;
       console.log('res');
       console.log(res);
+      this.pokemonDetails = res;
       this.pokemonImgSrc = `assets/assets/img/official-artwork/${this.pokemonDetails.id}.png`;
       console.log(this.pokemonImgSrc);
       console.log(this.pokemonDetails);
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    if(changes.pokemonId){
+      this.pokemonId = changes.pokemonId.currentValue;
+      this.getPokemonDescription();
+    }
   }
 
 }

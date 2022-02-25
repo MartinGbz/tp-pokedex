@@ -1,3 +1,8 @@
+:host {
+  height: fit-content;
+  width: 400px;
+}
+
 img {
   height: 50px;
 }
@@ -6,7 +11,7 @@ mat-nav-list {
   background-color: dimgrey;
   width: max-content;
   overflow: auto;
-  height: 400px;
+  height: 100%;
 }
 
 mat-list-item mat-label {

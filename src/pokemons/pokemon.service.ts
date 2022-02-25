@@ -24,4 +24,8 @@ export class PokemonService {
   getPokemonDescription(pokemonId: number): Observable<any> {
     return this.http.get<any>(this.pokedexApiUrl+'/pokemons/'+pokemonId);
   }
+
+  getPokemonSearch(pattern: string, offset: number, limit: number): Observable<PageData<Pokemon>> {
+    return this.http.get<any>(this.pokedexApiUrl+'/pokemons?search='+pattern+'&offset='+offset+'&limit='+limit);
+  }
 }

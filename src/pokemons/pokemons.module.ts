@@ -13,6 +13,8 @@ import {InfiniteScrollModule} from "ngx-infinite-scroll";
 import {MatIconModule} from "@angular/material/icon";
 import { PokedexComponent } from './pokedex/pokedex.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -37,6 +39,8 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     InfiniteScrollModule,
     MatIconModule,
     MatSidenavModule,
+    MatInputModule,
+    FormsModule,
   ]
 })
 export class PokemonsModule { }

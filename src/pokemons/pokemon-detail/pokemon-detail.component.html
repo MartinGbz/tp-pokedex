@@ -1,5 +1,5 @@
 <div *ngIf="pokemonDetails">
-  <mat-card style="background-color: dimgrey; color: lightgrey; height: fit-content; width: 500px">
+  <mat-card style="background-color: dimgrey; color: lightgrey; height: fit-content;" [ngStyle]="{'width': width}">
     <button class="back-button" mat-button routerLink="/">←</button>
     <mat-grid-list cols="2" rowHeight="50px">
           <mat-grid-tile rowspan="5" colspan="1">
