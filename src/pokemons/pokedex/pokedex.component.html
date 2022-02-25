@@ -1,6 +1,6 @@
-<mat-drawer-container style="height: 600px" [autosize]="true" class="example-container">
+<mat-drawer-container [autosize]="true">
   <mat-drawer mode="side" opened>
-    <app-pokemon-list (pokemonClick)="pokemonIdChange($event)"></app-pokemon-list>
+    <app-pokemon-list style="vertical-align: center; align-items: center; align-self: center" (pokemonClick)="pokemonIdChange($event)"></app-pokemon-list>
   </mat-drawer>
   <mat-drawer-content>
     <app-pokemon-detail [pokemonId]="pokemonId" width="400px"></app-pokemon-detail>
