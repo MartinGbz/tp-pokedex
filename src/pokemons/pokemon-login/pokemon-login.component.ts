@@ -10,10 +10,6 @@ import {Router} from "@angular/router";
   styleUrls: ['./pokemon-login.component.scss']
 })
 export class PokemonLoginComponent implements OnInit {
-  // emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  // passwordFormControl = new FormControl('', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]);
-  // passwordFormControl = new FormControl('', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])')]);
-
   loginFormGroup: FormGroup = new FormGroup({
     emailFormControl: new FormControl('', [Validators.email, Validators.required ]),
     passwordFormControl: new FormControl('', [Validators.required, Validators.min(3) ])

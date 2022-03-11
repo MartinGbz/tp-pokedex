@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from "../services/login-service/login.service";
-import {environment} from "../../environments/environment";
 import {Router} from "@angular/router";
 
 @Component({
