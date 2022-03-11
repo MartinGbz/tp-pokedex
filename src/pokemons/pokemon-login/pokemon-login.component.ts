@@ -32,6 +32,7 @@ export class PokemonLoginComponent implements OnInit {
     this.loginService.login(this.loginFormGroup.value.emailFormControl, this.loginFormGroup.value.passwordFormControl).subscribe( res => {
       this.tokens = res;
       this.loginErrorMsg = false;
+      localStorage.setItem('access_token',this.tokens.access_token);
       this.router.navigate(['pokedex']);
       console.log('this.tokens');
       console.log(this.tokens);

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginService} from "../services/login-service/login.service";
+import {environment} from "../../environments/environment";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-pokemon-team',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonTeamComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
+    if(!localStorage.getItem('access_token')) {
+      this.router.navigate(['login']);
+    }
   }
 
 }
