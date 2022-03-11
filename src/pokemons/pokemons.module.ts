@@ -14,7 +14,9 @@ import {MatIconModule} from "@angular/material/icon";
 import { PokedexComponent } from './pokedex/pokedex.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { PokemonTeamComponent } from './pokemon-team/pokemon-team.component';
+import { PokemonLoginComponent } from './pokemon-login/pokemon-login.component';
 
 
 
@@ -22,7 +24,9 @@ import {FormsModule} from "@angular/forms";
     declarations: [
         PokemonListComponent,
         PokemonDetailComponent,
-        PokedexComponent
+        PokedexComponent,
+        PokemonTeamComponent,
+        PokemonLoginComponent
     ],
     exports: [
         PokemonListComponent
@@ -41,6 +45,7 @@ import {FormsModule} from "@angular/forms";
     MatSidenavModule,
     MatInputModule,
     FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class PokemonsModule { }

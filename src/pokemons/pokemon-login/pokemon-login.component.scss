@@ -1,0 +1,19 @@
+h2 {
+  //text-align: center;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+p {
+  color: red;
+}
