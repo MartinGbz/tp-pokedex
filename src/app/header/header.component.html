@@ -1,7 +1,15 @@
-<div>
-<!--  <span></span>-->
+<!-- <div>
   <img src="assets/medias/pokedex.png" alt="pokedex-img">
   <button *ngIf="accessToken" mat-raised-button (click)="loginLogout()">Logout</button>
   <button *ngIf="!accessToken" mat-raised-button (click)="loginLogout()">Login</button>
-</div>
+</div> -->
 
+<div class="wrapper">
+  <img src="assets/medias/pokedex.png" alt="pokedex-img">
+  <button *ngIf="accessToken" mat-raised-button (click)="loginLogout()">Logout</button>
+  <button *ngIf="!accessToken" mat-raised-button (click)="loginLogout()">Login</button>
+  <mat-tab-group (selectedTabChange)="navigate($event)">
+    <mat-tab label="Pokedex"></mat-tab>
+    <mat-tab label="Team"></mat-tab>
+  </mat-tab-group>
+</div>
