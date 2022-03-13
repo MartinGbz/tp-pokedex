@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterContentChecked,
+  Component,
+  OnInit
+} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -6,14 +10,23 @@ import {Router} from "@angular/router";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterContentChecked {
 
   accessToken = localStorage.getItem('access_token')
+  index = 0;
 
   constructor(public router: Router) { }
 
   ngOnInit(): void {
+  }
 
+  ngAfterContentChecked() {
+    if(this.router.url == '/pokedex'){
+      this.index = 0;
+    }
+    else if(this.router.url == '/team') {
+      this.index = 1;
+    }
   }
 
   loginLogout() {

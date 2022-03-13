@@ -14,8 +14,6 @@ export class PokemonTeamComponent implements OnInit {
 
   ngOnInit(): void {
     if(!localStorage.getItem('access_token')) {
-      
-      console.log('hey');
       this.router.navigate(['login']);
     }
     else {

@@ -22,6 +22,9 @@ export class PokemonLoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('access_token')){
+      this.router.navigate(['pokedex']);
+    }
   }
 
   submit() {
