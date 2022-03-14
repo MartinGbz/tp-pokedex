@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LoginService} from "../services/login-service/login.service";
 import {Router} from "@angular/router";
 import {TeamService} from "../services/team-service/team.service";
+import {Pokemon} from "../../models/pokemon";
 
 @Component({
   selector: 'app-pokemon-team',
@@ -9,6 +10,8 @@ import {TeamService} from "../services/team-service/team.service";
   styleUrls: ['./pokemon-team.component.scss']
 })
 export class PokemonTeamComponent implements OnInit {
+
+  team: Pokemon[] = [];
 
   constructor(private loginService: LoginService, private router: Router, private teamService: TeamService) { }
 
@@ -18,24 +21,23 @@ export class PokemonTeamComponent implements OnInit {
     }
     else {
       this.teamService.getTeam().subscribe(res => {
+        this.team = res;
         console.log(res);
       }, err => {
         console.log(err);
         switch (err.status) {
           // Unauthorized
           case 401:
-            this.getNewAccessToken();
-            // try to get team again with new access token
-            this.teamService.getTeam().subscribe(res => {
-              console.log(res);
-            });
+            // get new access token with refresh token
+            // + try to get team again with this new access token
+            this.getNewAccessTokenAndTeam();
             break;
         }
       })
     }
   }
 
-  getNewAccessToken(): void {
+  getNewAccessTokenAndTeam(): void {
     const refreshToken = localStorage.getItem('refresh_token');
     if(!refreshToken) {
       this.router.navigate(['/login']);
@@ -47,6 +49,11 @@ export class PokemonTeamComponent implements OnInit {
         localStorage.setItem('expires_in', res.expires_in.toString());
         localStorage.setItem('refresh_token', res.refresh_token);
         localStorage.setItem('token_type', res.token_type);
+
+        this.teamService.getTeam().subscribe(res => {
+          console.log('teeeeeeest');
+          this.team = res;
+        });
         }, err => {
           console.log(err);
           switch (err.status) {

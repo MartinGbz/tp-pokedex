@@ -18,9 +18,11 @@ export class HeaderComponent implements OnInit, AfterContentChecked {
   constructor(public router: Router) { }
 
   ngOnInit(): void {
+
   }
 
   ngAfterContentChecked() {
+    this.refreshToken = localStorage.getItem('refresh_token');
     if(this.router.url == '/pokedex'){
       this.index = 0;
     }
