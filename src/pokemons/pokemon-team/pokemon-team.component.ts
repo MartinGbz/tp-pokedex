@@ -21,7 +21,6 @@ export class PokemonTeamComponent implements OnInit {
         console.log(res);
       }, err => {
         console.log(err);
-        console.log(err.status);
         switch (err.status) {
           // Unauthorized
           case 401:
@@ -37,7 +36,6 @@ export class PokemonTeamComponent implements OnInit {
   }
 
   getNewAccessToken(): void {
-    console.log('getNewAccessToken');
     const refreshToken = localStorage.getItem('refresh_token');
     if(!refreshToken) {
       this.router.navigate(['/login']);
@@ -50,12 +48,10 @@ export class PokemonTeamComponent implements OnInit {
         localStorage.setItem('refresh_token', res.refresh_token);
         localStorage.setItem('token_type', res.token_type);
         }, err => {
-          console.log('refresh err');
           console.log(err);
           switch (err.status) {
             // Unauthorized
             case 401:
-              console.log('heeeeere');
               // refresh token invalid go to login
               this.router.navigate(['/login']);
               break;

@@ -28,10 +28,9 @@ export class PokemonLoginComponent implements OnInit {
       localStorage.setItem('expires_in', res.expires_in.toString());
       localStorage.setItem('refresh_token', res.refresh_token);
       this.router.navigate(['pokedex']);
-    }, error => {
+    }, err => {
       this.loginErrorMsg = true;
-      console.log('error');
-      console.log(error);
+      console.log(err);
     });
   }
 }
