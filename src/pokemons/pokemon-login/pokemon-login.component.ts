@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {LoginService} from "../services/login-service/login.service";
-import {AuthTokens} from "../../models/auth-tokens";
 import {Router} from "@angular/router";
 
 @Component({
@@ -16,25 +15,19 @@ export class PokemonLoginComponent implements OnInit {
   });
 
   hidePassword = true;
-  tokens: AuthTokens = { access_token: '', refresh_token: '', expires_in: 0};
   loginErrorMsg = false;
 
   constructor(private loginService: LoginService, private router: Router) { }
 
-  ngOnInit(): void {
-    if(localStorage.getItem('access_token')){
-      this.router.navigate(['pokedex']);
-    }
-  }
+  ngOnInit(): void {}
 
   submit() {
     this.loginService.login(this.loginFormGroup.value.emailFormControl, this.loginFormGroup.value.passwordFormControl).subscribe( res => {
-      this.tokens = res;
       this.loginErrorMsg = false;
-      localStorage.setItem('access_token',this.tokens.access_token);
+      localStorage.setItem('access_token', res.access_token);
+      localStorage.setItem('expires_in', res.expires_in.toString());
+      localStorage.setItem('refresh_token', res.refresh_token);
       this.router.navigate(['pokedex']);
-      console.log('this.tokens');
-      console.log(this.tokens);
     }, error => {
       this.loginErrorMsg = true;
       console.log('error');

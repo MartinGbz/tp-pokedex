@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {AuthTokens} from "../../../models/auth-tokens";
+import {AuthTokensRefresh} from "../../../models/auth-tokens-refresh";
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,11 @@ export class LoginService {
     const body = { 'email': email, 'password': password };
     console.log(environment.pokedexApiUrl);
     return this.http.post<any>(environment.pokedexApiUrl+'/auth/login', body, {headers});
+  }
+
+  getAccessToken(refreshToken: string): Observable<AuthTokensRefresh> {
+    const headers = { 'Content-Type': 'application/json' };
+    const body = { 'refresh_token': refreshToken };
+    return this.http.post<any>(environment.pokedexApiUrl+'/auth/refresh', body, {headers});
   }
 }

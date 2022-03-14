@@ -1,7 +1,7 @@
 <div class="wrapper">
   <img src="assets/medias/pokedex.png" alt="pokedex-img">
-  <button *ngIf="accessToken && this.router.url !== '/login'" mat-raised-button (click)="loginLogout()">Logout</button>
-  <button *ngIf="!accessToken && this.router.url !== '/login'" mat-raised-button (click)="loginLogout()">Login</button>
+  <button *ngIf="refreshToken && this.router.url !== '/login'" mat-raised-button (click)="login()">Logout</button>
+  <button *ngIf="!refreshToken && this.router.url !== '/login'" mat-raised-button (click)="logout()">Login</button>
   <mat-tab-group *ngIf="this.router.url !== '/login'" (selectedTabChange)="navigate($event)" [selectedIndex]="this.index">
     <mat-tab label="Pokedex"></mat-tab>
     <mat-tab label="Team"></mat-tab>
