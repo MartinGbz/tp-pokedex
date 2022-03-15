@@ -1,0 +1,37 @@
+div {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding-top: 50px;
+}
+
+mat-card {
+  //width: 200px;
+  //height: 200px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+p {
+  grid-row: 1;
+  grid-column: 1;
+  align-self: center;
+}
+
+.delete-icon {
+  //width: 25px;
+  //height: 25px;
+  grid-row: 1;
+  grid-column: 2;
+  justify-self: flex-end;
+}
+
+.mat-icon-delete {
+  color: #424242;
+}
+
+img {
+  width: 150px;
+  grid-row: 2;
+  grid-column: 1 / 3;
+}
