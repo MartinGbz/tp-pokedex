@@ -3,6 +3,9 @@ import {LoginService} from "../services/login-service/login.service";
 import {Router} from "@angular/router";
 import {TeamService} from "../services/team-service/team.service";
 import {Pokemon} from "../../models/pokemon";
+import {MatDialog} from "@angular/material/dialog";
+import {PokemonListComponent} from "../pokemon-list/pokemon-list.component";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-pokemon-team',
@@ -13,28 +16,32 @@ export class PokemonTeamComponent implements OnInit {
 
   team: Pokemon[] = [];
 
-  constructor(private loginService: LoginService, private router: Router, private teamService: TeamService) { }
+  constructor(private loginService: LoginService, private router: Router, private teamService: TeamService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     if(!localStorage.getItem('access_token')) {
       this.router.navigate(['/login']);
     }
     else {
-      this.teamService.getTeam().subscribe(res => {
-        this.team = res;
-        console.log(res);
-      }, err => {
-        console.log(err);
-        switch (err.status) {
-          // Unauthorized
-          case 401:
-            // get new access token with refresh token
-            // + try to get team again with this new access token
-            this.getNewAccessTokenAndTeam();
-            break;
-        }
-      })
+      this.getTeam();
     }
+  }
+
+  getTeam(): void {
+    this.teamService.getTeam().subscribe(res => {
+      this.team = res;
+      console.log(res);
+    }, err => {
+      console.log(err);
+      switch (err.status) {
+        // Unauthorized
+        case 401:
+          // get new access token with refresh token
+          // + try to get team again with this new access token
+          this.getNewAccessTokenAndTeam();
+          break;
+      }
+    })
   }
 
   getNewAccessTokenAndTeam(): void {
@@ -68,4 +75,40 @@ export class PokemonTeamComponent implements OnInit {
     }
   }
 
+  deletePokemonOnClick(index: number) {
+    if(this.team.length <= 1) {
+      this._snackBar.open('Your team cannot be empty', 'close', {duration: 3000});
+    }
+    else {
+      this.team.splice(index, 1);
+      this.teamService.putTeam(this.team.map(x => x.id)).subscribe(() => {
+        this.getTeam();
+      });
+    }
+  }
+
+  addPokemonOnClick() {
+    const dialogRef = this.dialog.open(PokemonListComponent);
+    dialogRef.componentInstance.pokemonClick.subscribe(next => {
+      this.addPokemon(next);
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  addPokemon(pokemonId: number) {
+    if(this.team.length >= 6) {
+      this._snackBar.open('Your team cannot be composed of more than 6 pokemons', 'close', {duration: 3000});
+    }
+    else {
+      const newTeam = this.team.map(x => x.id);
+      newTeam.push(pokemonId);
+      console.log(newTeam);
+      this.teamService.putTeam(newTeam).subscribe(() => {
+        this.getTeam();
+      });
+    }
+  }
 }
