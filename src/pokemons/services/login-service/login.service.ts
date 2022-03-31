@@ -15,7 +15,6 @@ export class LoginService {
   login(email: string, password: string): Observable<AuthTokens> {
     const headers = { 'Content-Type': 'application/json' };
     const body = { 'email': email, 'password': password };
-    console.log(environment.pokedexApiUrl);
     return this.http.post<any>(environment.pokedexApiUrl+'/auth/login', body, {headers});
   }
 

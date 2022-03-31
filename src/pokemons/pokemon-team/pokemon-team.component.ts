@@ -30,7 +30,6 @@ export class PokemonTeamComponent implements OnInit {
   getTeam(): void {
     this.teamService.getTeam().subscribe(res => {
       this.team = res;
-      console.log(res);
     }, err => {
       console.log(err);
       switch (err.status) {
@@ -51,14 +50,12 @@ export class PokemonTeamComponent implements OnInit {
     }
     else {
       this.loginService.getAccessToken(refreshToken).subscribe(res => {
-        console.log(res);
         localStorage.setItem('access_token', res.access_token);
         localStorage.setItem('expires_in', res.expires_in.toString());
         localStorage.setItem('refresh_token', res.refresh_token);
         localStorage.setItem('token_type', res.token_type);
 
         this.teamService.getTeam().subscribe(res => {
-          console.log('teeeeeeest');
           this.team = res;
         });
         }, err => {
@@ -93,9 +90,7 @@ export class PokemonTeamComponent implements OnInit {
       this.addPokemon(next);
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    dialogRef.afterClosed().subscribe();
   }
 
   addPokemon(pokemonId: number) {
@@ -105,7 +100,6 @@ export class PokemonTeamComponent implements OnInit {
     else {
       const newTeam = this.team.map(x => x.id);
       newTeam.push(pokemonId);
-      console.log(newTeam);
       this.teamService.putTeam(newTeam).subscribe(() => {
         this.getTeam();
       });

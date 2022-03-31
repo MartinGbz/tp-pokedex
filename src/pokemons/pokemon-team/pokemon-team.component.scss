@@ -3,9 +3,6 @@
   flex-wrap: wrap;
   gap: 15px;
   margin-left: 25px;
-  //justify-content: space-around;
-  //width: 100%;
-  //width: 1000px;
   padding-top: 25px;
 }
 
@@ -14,8 +11,6 @@
 }
 
 mat-card {
-  //width: 150px;
-  //height: 200px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
@@ -31,8 +26,6 @@ p {
 }
 
 .delete-icon {
-  //width: 25px;
-  //height: 25px;
   grid-row: 1;
   grid-column: 2;
   justify-self: flex-end;
@@ -44,7 +37,6 @@ p {
 }
 
 img {
-  //width: 150px;
   width: 100%;
   grid-row: 2;
   grid-column: 1 / 3;

@@ -9,7 +9,6 @@ import {PokemonService} from "../services/pokemon-service/pokemon.service";
 })
 export class PokemonDetailComponent implements OnInit {
 
-  // pokemonId = 0;
   pokemonDetails: any;
   pokemonImgSrc = '';
 
