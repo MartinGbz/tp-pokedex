@@ -17,6 +17,11 @@
 .wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  //background-color: #424242;
+  background: rgb(48,48,48);
+  background: linear-gradient(0deg, rgba(48,48,48,1) 0%, rgba(100,100,100,1) 50%, rgba(150,150,150,1) 100%);
+  //margin-top: 10px;
+  padding: 25px;
 }
 
 button {
@@ -26,7 +31,7 @@ button {
   align-self: flex-end;
   grid-column: 3;
   grid-row: 2;
-  margin-right: 25px;
+  //margin-right: 25px;
 }
 
 img {
@@ -41,5 +46,13 @@ mat-tab-group {
   width: fit-content;
   grid-column: 1;
   grid-row: 2;
-  margin-left: 25px;
+  //margin-left: 25px;
+}
+
+.logout {
+  background-color: #d35656;
+}
+
+.login {
+  background-color: #298829;
 }

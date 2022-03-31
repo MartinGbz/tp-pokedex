@@ -77,7 +77,7 @@ export class PokemonTeamComponent implements OnInit {
 
   deletePokemonOnClick(index: number) {
     if(this.team.length <= 1) {
-      this._snackBar.open('Your team cannot be empty', 'close', {duration: 3000});
+      this._snackBar.open('Your team cannot be empty', 'close', {duration: 3000, panelClass: ['red-snackbar']});
     }
     else {
       this.team.splice(index, 1);
@@ -100,7 +100,7 @@ export class PokemonTeamComponent implements OnInit {
 
   addPokemon(pokemonId: number) {
     if(this.team.length >= 6) {
-      this._snackBar.open('Your team cannot be composed of more than 6 pokemons', 'close', {duration: 3000});
+      this._snackBar.open('Your team cannot be composed of more than 6 pokemons', 'close', {duration: 3000, panelClass: ['red-snackbar']});
     }
     else {
       const newTeam = this.team.map(x => x.id);

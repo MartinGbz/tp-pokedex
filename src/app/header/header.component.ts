@@ -54,5 +54,6 @@ export class HeaderComponent implements OnInit, AfterContentChecked {
   logout() {
     this.clearAuthLocalStorage();
     this.refreshToken = '';
+    this.router.navigate(['pokedex']);
   }
 }
