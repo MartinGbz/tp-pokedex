@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {PokemonService} from "../pokemon.service";
+import {PokemonService} from "../services/pokemon-service/pokemon.service";
 import {PageData} from "../../models/page-data";
 import {Pokemon} from "../../models/pokemon";
 

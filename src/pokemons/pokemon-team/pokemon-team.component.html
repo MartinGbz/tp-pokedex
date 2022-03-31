@@ -1,0 +1,10 @@
+<div class="team">
+  <mat-card class="pokemon-card" *ngFor="let pokemon of this.team; let index = index;">
+    <p> {{pokemon.name}} </p>
+    <button mat-mini-fab aria-label="Delete this pokemon" class="delete-icon" (click)="deletePokemonOnClick(index)">
+      <mat-icon class="mat-icon-delete">delete</mat-icon>
+    </button>
+    <img src='assets/assets/img/official-artwork/{{pokemon.id}}.png' [alt]="pokemon.name">
+  </mat-card>
+  <button mat-raised-button class="plus-button" [disabled]="this.team.length == 6" (click)="addPokemonOnClick()" ><mat-icon class="mat-icon-add">add</mat-icon></button>
+</div>
